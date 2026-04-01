@@ -309,22 +309,7 @@
             align-items: center;
         }
 
-        .theme-toggle {
-            background: rgba(0, 255, 0, 0.1);
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
 
-        .theme-toggle:hover {
-            background: rgba(0, 255, 0, 0.2);
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
-        }
 
         .download-btn {
             background: linear-gradient(135deg, var(--neon-green), var(--dark-green));
@@ -973,7 +958,6 @@
             <a href="#skills" class="nav-link">Skills</a>
         </div>
         <div class="nav-controls">
-            <button class="theme-toggle" onclick="toggleTheme()">🌙 Theme</button>
             <button class="download-btn" onclick="downloadResume()">📥 Download</button>
         </div>
     </nav>
@@ -1238,11 +1222,7 @@
             setTimeout(() => toast.remove(), 2000);
         }
 
-        // Theme Toggle
-        function toggleTheme() {
-            document.body.style.filter = document.body.style.filter === 'invert(1)' ? 'invert(0)' : 'invert(1)';
-            showToast('Theme toggled!');
-        }
+
 
         // Download Resume as PDF
         function downloadResume() {
