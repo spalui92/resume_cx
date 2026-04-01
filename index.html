@@ -406,9 +406,11 @@
         .bio-usp {
             color: var(--neon-green);
             font-weight: 700;
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Courier Prime', monospace;
             font-size: 15px;
             letter-spacing: 0.5px;
+            font-style: italic;
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
         }
 
         /* Contact Links */
@@ -465,6 +467,20 @@
         .quick-stat {
             text-align: center;
             padding: 10px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .quick-stat::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 24px;
+            background: var(--neon-green);
+            box-shadow: 0 0 8px var(--neon-green);
         }
 
         .quick-stat-value {
@@ -472,6 +488,8 @@
             font-weight: 700;
             color: var(--neon-green);
             margin-bottom: 5px;
+            font-family: 'Courier Prime', monospace;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
         }
 
         .quick-stat-label {
