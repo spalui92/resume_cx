@@ -11,7 +11,6 @@
         /* PROFESSIONAL INTERACTIVE RESUME
          * Black background with neon blue (#00D9FF) accents
          * Fully interactive with animations and scroll effects
-         * Updated color scheme: Electric Green → Neon Blue
          */
 
         * {
@@ -21,8 +20,8 @@
         }
 
         :root {
-            --neon-blue: #00D9FF;
-            --dark-blue: #0099CC;
+            --neon-green: #00D9FF;
+            --dark-green: #0099CC;
             --background: #000000;
             --foreground: #FFFFFF;
             --muted: #CCCCCC;
@@ -50,11 +49,11 @@
             top: 0;
             left: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--dark-blue));
+            background: linear-gradient(90deg, var(--neon-green), var(--dark-green));
             width: 0%;
             z-index: 2000;
             transition: width 0.1s ease;
-            box-shadow: 0 0 10px var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-green);
         }
 
         /* Subtle background gradient pattern */
@@ -221,13 +220,13 @@
         }
 
         a {
-            color: var(--neon-blue);
+            color: var(--neon-green);
             text-decoration: none;
             transition: all 0.2s ease;
         }
 
         a:hover {
-            text-shadow: 0 0 10px var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-green);
         }
 
         /* Navigation */
@@ -240,7 +239,7 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
-            border-bottom: 2px solid var(--neon-blue);
+            border-bottom: 2px solid var(--neon-green);
             padding: 15px 0;
             box-shadow: 0 0 40px rgba(0, 217, 255, 0.25), inset 0 1px 0 rgba(0, 217, 255, 0.1);
             border-top: 1px solid rgba(0, 217, 255, 0.2);
@@ -275,7 +274,7 @@
             content: '';
             width: 3px;
             height: 16px;
-            background: var(--neon-blue);
+            background: var(--neon-green);
             transition: all 0.3s ease;
         }
 
@@ -286,32 +285,48 @@
             left: 11px;
             width: 0;
             height: 2px;
-            background: var(--neon-blue);
+            background: var(--neon-green);
             transition: width 0.3s ease;
         }
 
         .nav-link:hover::after {
-            width: 20px;
+            width: calc(100% - 11px);
         }
 
-        /* Download Button */
+        .nav-link:hover::before {
+            height: 20px;
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .nav-link:hover {
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+
+
         .download-btn {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(0, 153, 204, 0.1) 100%);
-            border: 1px solid var(--neon-blue);
-            color: var(--neon-blue);
-            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--neon-green), var(--dark-green));
+            color: var(--background);
+            border: none;
+            padding: 8px 16px;
             border-radius: 4px;
             cursor: pointer;
-            font-weight: 600;
             font-size: 12px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
             transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
         }
 
         .download-btn:hover {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.3) 0%, rgba(0, 153, 204, 0.2) 100%);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
             transform: translateY(-2px);
         }
 
@@ -319,77 +334,103 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 100px 40px 40px;
+            padding: 80px 30px 40px;
             position: relative;
             z-index: 1;
         }
 
         /* Header */
         header {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            border-bottom: 2px solid var(--neon-green);
+            padding-bottom: 30px;
+            position: relative;
             animation: fade-in-up 0.8s ease-out;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, var(--neon-green), transparent);
+            opacity: 0.5;
         }
 
         .header-name {
             font-size: 48px;
             font-weight: 700;
-            letter-spacing: 3px;
             margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--neon-blue), var(--dark-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header-title {
-            font-size: 24px;
-            font-weight: 600;
             letter-spacing: 2px;
-            margin-bottom: 20px;
             color: var(--foreground);
         }
 
+        .header-title {
+            font-size: 20px;
+            color: var(--neon-green);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
         .title-accent {
-            color: var(--neon-blue);
+            color: var(--dark-green);
             font-weight: 700;
         }
 
         .header-subtitle {
-            font-size: 15px;
-            line-height: 1.8;
+            font-size: 14px;
             color: var(--muted);
+            line-height: 1.6;
             margin-bottom: 20px;
         }
 
         .bio-usp {
-            color: var(--neon-blue);
-            font-weight: 600;
+            color: var(--neon-green);
+            font-weight: 700;
+            font-family: 'Courier Prime', monospace;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.4), 0 0 16px rgba(0, 255, 0, 0.3), 0 0 24px rgba(0, 255, 0, 0.2);
+            position: relative;
+            padding: 2px 6px;
+            border-radius: 3px;
+            background: rgba(0, 255, 0, 0.08);
+            box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.1);
         }
 
         /* Contact Links */
         .contact-links {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .contact-link {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 14px;
+            gap: 8px;
+            padding: 8px 12px;
+            background: rgba(0, 255, 0, 0.08);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--neon-green);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .contact-link span {
-            color: var(--muted);
+        .contact-link:hover {
+            background: rgba(0, 255, 0, 0.15);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
         }
 
         .copy-btn {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(0, 153, 204, 0.05) 100%);
-            border: 1px solid var(--neon-blue);
-            color: var(--neon-blue);
-            padding: 6px 12px;
-            border-radius: 3px;
+            background: none;
+            border: none;
+            color: var(--neon-green);
             cursor: pointer;
             font-size: 12px;
             font-weight: 600;
@@ -397,43 +438,51 @@
         }
 
         .copy-btn:hover {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.25) 0%, rgba(0, 153, 204, 0.15) 100%);
-            box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
+            text-shadow: 0 0 8px var(--neon-green);
         }
 
-        /* Quick Stats */
+        /* Quick Stats Banner */
         .quick-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
             margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(0, 255, 0, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
         }
 
         .quick-stat {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 217, 255, 0.02) 100%);
-            border: 1px solid var(--border);
-            border-top: 2px solid var(--neon-blue);
-            padding: 20px;
             text-align: center;
-            transition: all 0.3s ease;
+            padding: 10px;
+            position: relative;
+            padding-left: 15px;
         }
 
-        .quick-stat:hover {
-            border-top: 2px solid var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 217, 255, 0.15);
-            transform: translateY(-2px);
+        .quick-stat::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 48px;
+            background: var(--neon-green);
+            box-shadow: 0 0 12px var(--neon-green);
         }
 
         .quick-stat-value {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
-            color: var(--neon-blue);
-            margin-bottom: 8px;
+            color: var(--neon-green);
+            margin-bottom: 5px;
             font-family: 'Courier Prime', monospace;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
         }
 
         .quick-stat-label {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--muted);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -441,13 +490,15 @@
 
         /* Section */
         .section {
-            margin-bottom: 50px;
+            margin-bottom: 45px;
+            position: relative;
+            animation: fade-in-up 0.8s ease-out;
         }
 
         .section-divider {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 25px;
         }
 
@@ -460,7 +511,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--neon-blue);
+            color: var(--neon-green);
             margin: 0;
             padding-bottom: 10px;
             border-bottom: 1px solid var(--border);
@@ -475,7 +526,7 @@
             left: 0;
             width: 40px;
             height: 2px;
-            background: var(--neon-blue);
+            background: var(--neon-green);
         }
 
         /* Stats */
@@ -489,7 +540,7 @@
         .stat {
             background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 217, 255, 0.02) 100%);
             border: 1px solid var(--border);
-            border-top: 2px solid var(--neon-blue);
+            border-top: 2px solid var(--neon-green);
             padding: 25px;
             text-align: center;
             position: relative;
@@ -506,12 +557,9 @@
             height: 100%;
             background: radial-gradient(circle at 50% 0%, rgba(0, 217, 255, 0.1), transparent 70%);
             pointer-events: none;
-        }
-
-        .stat:hover {
-            border-top: 2px solid var(--neon-blue);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
-            transform: translateY(-2px);
+                .quick-stat:hover {
+            border-top: 2px solid var(--neon-green);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.15);           transform: translateY(-2px);
         }
 
         .stat-icon {
@@ -525,7 +573,7 @@
         .stat-value {
             font-size: 32px;
             font-weight: 700;
-            color: var(--neon-blue);
+            color: var(--neon-green);
             margin-bottom: 8px;
             font-family: 'Courier Prime', monospace;
             position: relative;
@@ -554,7 +602,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(180deg, var(--neon-blue), transparent);
+            background: linear-gradient(180deg, var(--neon-green), transparent);
         }
 
         .timeline-item {
@@ -571,7 +619,7 @@
             height: 30px;
             border-radius: 50%;
             background: var(--background);
-            border: 2px solid var(--neon-blue);
+            border: 2px solid var(--neon-green);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -590,7 +638,7 @@
         .exp-company {
             font-weight: 700;
             font-size: 15px;
-            color: var(--neon-blue);
+            color: var(--neon-green);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -626,7 +674,7 @@
             content: '▸';
             position: absolute;
             left: 0;
-            color: var(--neon-blue);
+            color: var(--neon-green);
             font-weight: 700;
         }
 
@@ -635,7 +683,7 @@
             margin-bottom: 20px;
             padding: 16px;
             background: rgba(0, 217, 255, 0.03);
-            border-left: 3px solid var(--neon-blue);
+            border-left: 3px solid var(--neon-green);
             transition: all 0.3s ease;
         }
 
@@ -658,7 +706,7 @@
 
         .edu-status {
             font-size: 12px;
-            color: var(--neon-blue);
+            color: var(--neon-green);
             font-weight: 600;
             text-transform: uppercase;
             margin-top: 6px;
@@ -679,7 +727,7 @@
         }
 
         .edu-highlights strong {
-            color: var(--dark-blue);
+            color: var(--dark-green);
             font-weight: 600;
         }
 
@@ -696,7 +744,7 @@
 
         .skill-category-title {
             font-weight: 600;
-            color: var(--neon-blue);
+            color: var(--neon-green);
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -721,7 +769,7 @@
             content: '◆';
             position: absolute;
             left: 0;
-            color: var(--neon-blue);
+            color: var(--neon-green);
             font-size: 8px;
             top: 6px;
         }
@@ -734,10 +782,9 @@
             margin-top: 15px;
         }
 
-        .tech-item {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 217, 255, 0.02) 100%);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--neon-blue);
+        .quick-stat {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 217, 255, 0.02) 100%);            border: 1px solid var(--border);
+            border-left: 3px solid var(--neon-green);
             padding: 12px 14px;
             font-size: 12px;
             font-weight: 600;
@@ -760,9 +807,10 @@
             pointer-events: none;
         }
 
-        .tech-item:hover {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(0, 217, 255, 0.05) 100%);
-            box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+           .philosophy {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 217, 255, 0.02) 100%););
+            border-left: 3px solid var(--dark-green);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
             transform: translateY(-2px);
         }
 
@@ -772,9 +820,9 @@
         }
 
         /* Philosophy */
-        .philosophy {
+         .tech-item {
             background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 217, 255, 0.02) 100%);
-            border-left: 4px solid var(--neon-blue);
+            border-left: 4px solid var(--neon-green);
             padding: 25px;
             margin-top: 30px;
             font-style: italic;
@@ -797,7 +845,7 @@
         .philosophy-author {
             margin-top: 12px;
             font-size: 12px;
-            color: var(--neon-blue);
+            color: var(--neon-green);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -1019,8 +1067,9 @@
                         <li>Delivered high-quality support for a global user base, maintaining top-tier satisfaction scores.</li>
                         <li>Identified recurring system glitches and reported them to the operations team, leading to a reduction in repetitive tickets.</li>
                         <li>Mentored new joiners on operational protocols and communication best practices.</li>
-                        <li>Leveraged internal CRM tools and <strong>Excel</strong> to track and resolve customer issues efficiently.</li>
-                        <li>Consistently exceeded performance targets for first-contact resolution and customer satisfaction metrics.</li>
+                        <li>Leveraged internal CRM tools and <strong>Excel</strong> to track and resolve complex user issues.</li>
+                        <li>Acted as a primary point of contact for high-priority escalations, ensuring effective stakeholder management.</li>
+                        <li>Consistently met and exceeded individual and team performance targets for efficiency and quality.</li>
                     </ul>
                 </div>
             </div>
@@ -1034,20 +1083,38 @@
             </div>
 
             <div class="edu-item">
-                <div class="edu-degree">Bachelor of Commerce (B.Com)</div>
-                <div class="edu-school">Delhi University, Delhi</div>
-                <div class="edu-status">Completed</div>
+                <div class="edu-degree">MA Journalism & Mass Communication</div>
+                <div class="edu-school">IGNOU</div>
+                <div class="edu-status">Ongoing</div>
                 <div class="edu-highlights">
-                    <strong>Relevant Coursework:</strong> Business Management, Financial Accounting, Economics, Organizational Behavior
+                    <strong>Focus:</strong> Digital storytelling, audience engagement, media analytics
                 </div>
             </div>
 
             <div class="edu-item">
-                <div class="edu-degree">Certification in Customer Experience Management</div>
-                <div class="edu-school">Customer Experience Professionals Association (CXPA)</div>
+                <div class="edu-degree">CDMM Digital Marketing</div>
+                <div class="edu-school">Digital Vidya</div>
                 <div class="edu-status">Completed</div>
                 <div class="edu-highlights">
-                    <strong>Focus Areas:</strong> Customer Journey Mapping, Feedback Analysis, Service Recovery, CX Strategy
+                    <strong>Key Skills:</strong> SEO, SEM, Social Media Strategy, Analytics, Content Marketing, Conversion Optimization
+                </div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-degree">Data Analytics</div>
+                <div class="edu-school">Metvy (IIM-B Backed)</div>
+                <div class="edu-status">Completed</div>
+                <div class="edu-highlights">
+                    <strong>Coursework:</strong> Statistical Analysis, Data Visualization, SQL Fundamentals, Python for Analytics, Business Intelligence
+                </div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-degree">BA History (Honours)</div>
+                <div class="edu-school">IGNOU</div>
+                <div class="edu-status">Completed</div>
+                <div class="edu-highlights">
+                    <strong>Specialization:</strong> Modern Indian History, Research Methodology, Critical Analysis, Communication Skills
                 </div>
             </div>
         </section>
@@ -1056,55 +1123,28 @@
         <section class="section" id="skills">
             <div class="section-divider">
                 <span class="section-icon">⚙️</span>
-                <h2 class="section-title">Skills</h2>
+                <h2 class="section-title">Strengths & Skills</h2>
             </div>
 
             <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-category-title">CX & Operations</div>
+                <div>
+                    <div class="skill-category-title">Core Strengths</div>
                     <ul class="skill-list">
-                        <li>Customer Journey Mapping</li>
-                        <li>Process Optimization</li>
+                        <li>Communication Skills</li>
+                        <li>Stakeholder Management</li>
+                        <li>User Feedback Analysis</li>
                         <li>Service Delivery Management</li>
-                        <li>Stakeholder Communication</li>
-                        <li>Issue Resolution & Escalation</li>
-                        <li>SLA Management</li>
+                        <li>Cross-functional Collaboration</li>
                     </ul>
                 </div>
 
-                <div class="skill-category">
-                    <div class="skill-category-title">Data & Analytics</div>
+                <div>
+                    <div class="skill-category-title">Learning Focus</div>
                     <ul class="skill-list">
-                        <li>Data Analysis (Excel, SQL)</li>
-                        <li>Google Analytics 4</li>
-                        <li>Feedback Analysis</li>
-                        <li>Metrics & KPI Tracking</li>
-                        <li>Python (Basics)</li>
-                        <li>Reporting & Visualization</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-category-title">Tools & Platforms</div>
-                    <ul class="skill-list">
-                        <li>Kustomer (CRM)</li>
-                        <li>Slack</li>
-                        <li>Notion</li>
-                        <li>Microsoft Office Suite</li>
-                        <li>Google Workspace</li>
+                        <li>SQL Basics</li>
+                        <li>Python for Data</li>
+                        <li>GA4 Analysis</li>
                         <li>CRM Optimization</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-category-title">Soft Skills</div>
-                    <ul class="skill-list">
-                        <li>Problem-Solving</li>
-                        <li>Team Collaboration</li>
-                        <li>Communication</li>
-                        <li>Time Management</li>
-                        <li>Attention to Detail</li>
-                        <li>Adaptability</li>
                     </ul>
                 </div>
             </div>
@@ -1177,6 +1217,8 @@
             document.body.appendChild(toast);
             setTimeout(() => toast.remove(), 2000);
         }
+
+
 
         // Download Resume as PDF
         function downloadResume() {
