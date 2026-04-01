@@ -680,55 +680,64 @@
 
         /* Education */
         .edu-item {
-            margin-bottom: 20px;
-            padding: 16px;
-            background: rgba(0, 217, 255, 0.03);
-            border-left: 3px solid var(--neon-green);
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(0, 217, 255, 0.01) 100%);
+            border-left: 4px solid var(--neon-green);
+            border-radius: 4px;
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .edu-item:hover {
-            background: rgba(0, 217, 255, 0.06);
-            padding-left: 20px;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.03) 100%);
+            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.1);
+            transform: translateX(4px);
         }
 
         .edu-degree {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--foreground);
-            font-size: 14px;
+            font-size: 15px;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
         }
 
         .edu-school {
             font-size: 13px;
-            color: var(--muted);
-            margin-top: 4px;
+            color: var(--neon-green);
+            margin-top: 0;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         .edu-status {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--neon-green);
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            margin-top: 6px;
-            letter-spacing: 1px;
+            margin-top: 8px;
+            letter-spacing: 1.5px;
             display: inline-block;
-            padding: 4px 8px;
-            background: rgba(0, 217, 255, 0.1);
-            border-radius: 2px;
+            padding: 5px 10px;
+            background: rgba(0, 217, 255, 0.15);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 3px;
         }
 
         .edu-highlights {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--muted);
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid rgba(0, 217, 255, 0.1);
-            line-height: 1.6;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0, 217, 255, 0.15);
+            line-height: 1.7;
         }
 
         .edu-highlights strong {
-            color: var(--dark-green);
+            color: var(--neon-green);
             font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         /* Skills */
@@ -736,21 +745,35 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .skills-grid > div {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.03) 0%, rgba(0, 217, 255, 0.01) 100%);
+            padding: 20px;
+            border-left: 3px solid var(--neon-green);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .skills-grid > div:hover {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 217, 255, 0.02) 100%);
+            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.1);
         }
 
         .skill-category {
-            margin-bottom: 20px;
+            margin-bottom: 0;
         }
 
         .skill-category-title {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--neon-green);
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border);
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 217, 255, 0.2);
         }
 
         .skill-list {
@@ -760,32 +783,35 @@
         .skill-list li {
             font-size: 13px;
             color: var(--foreground);
-            line-height: 1.8;
-            padding-left: 15px;
+            line-height: 1.9;
+            padding-left: 18px;
             position: relative;
+            margin-bottom: 8px;
         }
 
         .skill-list li::before {
-            content: '◆';
+            content: '▸';
             position: absolute;
             left: 0;
             color: var(--neon-green);
-            font-size: 8px;
-            top: 6px;
+            font-size: 10px;
+            top: 5px;
+            font-weight: 700;
         }
 
         /* Tech Stack */
         .tech-stack-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .quick-stat {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 217, 255, 0.02) 100%);            border: 1px solid var(--border);
+        .tech-item {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 217, 255, 0.02) 100%);
+            border: 1px solid rgba(0, 217, 255, 0.2);
             border-left: 3px solid var(--neon-green);
-            padding: 12px 14px;
+            padding: 14px 16px;
             font-size: 12px;
             font-weight: 600;
             color: var(--foreground);
@@ -794,6 +820,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            border-radius: 3px;
         }
 
         .tech-item::before {
@@ -807,10 +834,9 @@
             pointer-events: none;
         }
 
-           .philosophy {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 217, 255, 0.02) 100%););
-            border-left: 3px solid var(--dark-green);
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+        .tech-item:hover {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(0, 217, 255, 0.05) 100%);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
             transform: translateY(-2px);
         }
 
@@ -820,16 +846,19 @@
         }
 
         /* Philosophy */
-         .tech-item {
+        .philosophy {
             background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 217, 255, 0.02) 100%);
             border-left: 4px solid var(--neon-green);
-            padding: 25px;
-            margin-top: 30px;
+            border-radius: 4px;
+            padding: 30px;
+            margin-top: 50px;
+            margin-bottom: 40px;
             font-style: italic;
             color: var(--foreground);
-            line-height: 1.8;
+            line-height: 1.9;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.08);
         }
 
         .philosophy::before {
@@ -854,16 +883,25 @@
 
         /* Footer */
         footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
+            margin-top: 60px;
+            padding-top: 30px;
+            padding-bottom: 20px;
+            border-top: 2px solid rgba(0, 217, 255, 0.2);
             text-align: center;
             color: var(--muted);
             font-size: 12px;
+            letter-spacing: 0.5px;
         }
 
         footer p {
-            margin: 6px 0;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        footer p:first-child {
+            color: var(--neon-green);
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         /* Toast Notification */
