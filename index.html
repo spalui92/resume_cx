@@ -109,13 +109,24 @@
             letter-spacing: 2px;
             transition: all 0.3s ease;
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link::before {
+            content: '';
+            width: 3px;
+            height: 16px;
+            background: var(--neon-green);
+            transition: all 0.3s ease;
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
             bottom: -5px;
-            left: 0;
+            left: 11px;
             width: 0;
             height: 2px;
             background: var(--neon-green);
@@ -123,7 +134,12 @@
         }
 
         .nav-link:hover::after {
-            width: 100%;
+            width: calc(100% - 11px);
+        }
+
+        .nav-link:hover::before {
+            height: 20px;
+            box-shadow: 0 0 10px var(--neon-green);
         }
 
         .nav-link:hover {
@@ -184,7 +200,7 @@
         }
 
         .bio-usp {
-            color: var(--neon-green);
+            color: #00CC00;
             font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 15px;
