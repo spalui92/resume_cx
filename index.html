@@ -8,11 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
     <style>
-        /* PROFESSIONAL RESUME WITH VISUAL PERSONALITY
+        /* PROFESSIONAL INTERACTIVE RESUME
          * Black background with electric green (#00FF00) neon accents
-         * Subtle background design elements
-         * Icon-enhanced stat boxes
-         * Dynamic, engaging layout
+         * Fully interactive with animations and scroll effects
          */
 
         * {
@@ -23,6 +21,7 @@
 
         :root {
             --neon-green: #00FF00;
+            --dark-green: #00CC00;
             --background: #000000;
             --foreground: #FFFFFF;
             --muted: #CCCCCC;
@@ -42,6 +41,19 @@
             font-size: 15px;
             position: relative;
             overflow-x: hidden;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-green), var(--dark-green));
+            width: 0%;
+            z-index: 2000;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px var(--neon-green);
         }
 
         /* Subtle background gradient pattern */
@@ -75,6 +87,11 @@
         @keyframes float-fast {
             0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
             50% { transform: translateY(-25px) translateX(25px); opacity: 0.3; }
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Floating circles */
@@ -127,15 +144,17 @@
             padding: 15px 0;
             box-shadow: 0 0 40px rgba(0, 255, 0, 0.25), inset 0 1px 0 rgba(0, 255, 0, 0.1);
             border-top: 1px solid rgba(0, 255, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
         }
 
         .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
             display: flex;
             justify-content: center;
             gap: 40px;
-            padding: 0 20px;
+            flex: 1;
         }
 
         .nav-link {
@@ -185,6 +204,48 @@
             text-shadow: 0 0 10px var(--neon-green);
         }
 
+        .nav-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(0, 255, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--neon-green), var(--dark-green));
+            color: var(--background);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        }
+
+        .download-btn:hover {
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
         /* Container */
         .container {
             max-width: 900px;
@@ -200,6 +261,7 @@
             border-bottom: 2px solid var(--neon-green);
             padding-bottom: 30px;
             position: relative;
+            animation: fade-in-up 0.8s ease-out;
         }
 
         header::after {
@@ -223,37 +285,119 @@
 
         .header-title {
             font-size: 20px;
-            color: #00FF00;
+            color: var(--neon-green);
             font-weight: 600;
             letter-spacing: 1px;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
 
+        .title-accent {
+            color: var(--dark-green);
+            font-weight: 700;
+        }
+
         .header-subtitle {
             font-size: 14px;
             color: var(--muted);
             line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .bio-usp {
-            color: #00FF00;
+            color: var(--neon-green);
             font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 15px;
             letter-spacing: 0.5px;
         }
 
-        .title-accent {
-            color: #00CC00;
+        /* Contact Links */
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: rgba(0, 255, 0, 0.08);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--neon-green);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-link:hover {
+            background: rgba(0, 255, 0, 0.15);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--neon-green);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            text-shadow: 0 0 8px var(--neon-green);
+        }
+
+        /* Quick Stats Banner */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(0, 255, 0, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .quick-stat {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .quick-stat-value {
+            font-size: 24px;
             font-weight: 700;
+            color: var(--neon-green);
+            margin-bottom: 5px;
+        }
+
+        .quick-stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Section */
         .section {
             margin-bottom: 45px;
             position: relative;
+            animation: fade-in-up 0.8s ease-out;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .section-icon {
+            font-size: 20px;
         }
 
         .section-title {
@@ -262,10 +406,11 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--neon-green);
-            margin-bottom: 20px;
+            margin: 0;
             padding-bottom: 10px;
             border-bottom: 1px solid var(--border);
             position: relative;
+            flex: 1;
         }
 
         .section-title::before {
@@ -276,17 +421,6 @@
             width: 40px;
             height: 2px;
             background: var(--neon-green);
-        }
-
-        /* Summary */
-        .summary {
-            font-size: 15px;
-            line-height: 1.8;
-            color: var(--foreground);
-        }
-
-        .summary strong {
-            color: var(--neon-green);
         }
 
         /* Stats */
@@ -352,27 +486,41 @@
             z-index: 1;
         }
 
-        /* Experience */
-        .exp-item {
-            margin-bottom: 32px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--border);
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--neon-green), transparent);
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 80px;
             position: relative;
         }
 
-        .exp-item::before {
-            content: '';
+        .timeline-dot {
             position: absolute;
-            left: 0;
-            bottom: -1px;
-            width: 0;
-            height: 2px;
-            background: var(--neon-green);
-            transition: width 0.3s ease;
-        }
-
-        .exp-item:hover::before {
-            width: 60px;
+            left: 15px;
+            top: 5px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--background);
+            border: 2px solid var(--neon-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
         }
 
         .exp-header {
@@ -509,6 +657,7 @@
             top: 6px;
         }
 
+        /* Tech Stack */
         .tech-stack-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -544,7 +693,7 @@
 
         .tech-item:hover {
             background: linear-gradient(135deg, rgba(0, 255, 0, 0.15) 0%, rgba(0, 255, 0, 0.05) 100%);
-            border-left: 3px solid #00CC00;
+            border-left: 3px solid var(--dark-green);
             box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
             transform: translateY(-2px);
         }
@@ -601,100 +750,74 @@
             margin: 6px 0;
         }
 
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 255, 0, 0.9);
+            color: var(--background);
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 3000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 80px 20px 40px;
-            }
-
-            .header-name {
-                font-size: 36px;
-            }
-
-            .nav-container {
-                gap: 20px;
-            }
-
-            .nav-link {
-                font-size: 11px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-
-            .exp-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            .container { padding: 80px 20px 40px; }
+            .header-name { font-size: 36px; }
+            .nav-container { gap: 20px; }
+            .nav-link { font-size: 11px; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .stats-container { grid-template-columns: 1fr; }
+            .quick-stats { grid-template-columns: repeat(2, 1fr); }
+            .exp-header { flex-direction: column; align-items: flex-start; }
+            .navbar { flex-direction: column; gap: 15px; }
+            .nav-controls { width: 100%; justify-content: center; gap: 10px; }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 80px 15px 30px;
-            }
-
-            .header-name {
-                font-size: 28px;
-            }
-
-            .header-title {
-                font-size: 16px;
-            }
-
-            .nav-container {
-                gap: 15px;
-            }
-
-            .nav-link {
-                font-size: 10px;
-            }
-
-            .section-title {
-                font-size: 14px;
-            }
-
-            .exp-list li,
-            .skill-list li {
-                font-size: 12px;
-            }
-
-            .stat-value {
-                font-size: 24px;
-            }
-
-            .stat-icon {
-                font-size: 24px;
-            }
+            .container { padding: 80px 15px 30px; }
+            .header-name { font-size: 28px; }
+            .header-title { font-size: 16px; }
+            .nav-container { gap: 15px; }
+            .nav-link { font-size: 10px; }
+            .section-title { font-size: 14px; }
+            .exp-list li, .skill-list li { font-size: 12px; }
+            .stat-value { font-size: 24px; }
+            .stat-icon { font-size: 24px; }
+            .quick-stats { grid-template-columns: 1fr; }
         }
 
-        /* Print styles */
         @media print {
-            .navbar {
-                display: none;
-            }
-
-            body {
-                padding: 0;
-            }
-
-            .container {
-                padding: 20px;
-            }
+            .navbar, .scroll-progress { display: none; }
+            body { padding: 0; }
+            .container { padding: 20px; }
         }
     </style>
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="#top" class="nav-link">Top</a>
             <a href="#experience" class="nav-link">Experience</a>
             <a href="#education" class="nav-link">Education</a>
             <a href="#skills" class="nav-link">Skills</a>
+        </div>
+        <div class="nav-controls">
+            <button class="theme-toggle" onclick="toggleTheme()">🌙 Theme</button>
+            <button class="download-btn" onclick="downloadResume()">📥 Download</button>
         </div>
     </nav>
 
@@ -705,7 +828,37 @@
             <div class="header-subtitle">
                 <span class="bio-usp">Customer Experience professional</span> with 3+ years of experience across Ultrahuman and high-growth startups. Skilled in streamlining operational workflows, analyzing user feedback to drive improvements, and managing complex service delivery. Focused on delivering measurable results through efficient process management and a deep understanding of user needs.
             </div>
+            <div class="contact-links" style="margin-top: 20px;">
+                <div class="contact-link">
+                    <span>📧 Email</span>
+                    <button class="copy-btn" onclick="copyToClipboard('sharmistha@example.com')">Copy</button>
+                </div>
+                <div class="contact-link">
+                    <span>💼 LinkedIn</span>
+                    <button class="copy-btn" onclick="copyToClipboard('linkedin.com/in/sharmisthapalui')">Copy</button>
+                </div>
+                <div class="contact-link">
+                    <span>🐙 GitHub</span>
+                    <button class="copy-btn" onclick="copyToClipboard('github.com/sharmisthapalui')">Copy</button>
+                </div>
+            </div>
         </header>
+
+        <!-- Quick Stats Banner -->
+        <div class="quick-stats">
+            <div class="quick-stat">
+                <div class="quick-stat-value">3+</div>
+                <div class="quick-stat-label">Years Experience</div>
+            </div>
+            <div class="quick-stat">
+                <div class="quick-stat-value">4</div>
+                <div class="quick-stat-label">Companies</div>
+            </div>
+            <div class="quick-stat">
+                <div class="quick-stat-value">15+</div>
+                <div class="quick-stat-label">Projects</div>
+            </div>
+        </div>
 
         <!-- Stats -->
         <div class="stats-container">
@@ -728,60 +881,69 @@
 
         <!-- Experience -->
         <section class="section" id="experience">
-            <h2 class="section-title">Experience</h2>
-
-            <div class="exp-item">
-                <div class="exp-header">
-                    <div class="exp-company">Ultrahuman</div>
-                    <div class="exp-date">Jun 2025 – Aug 2025</div>
-                </div>
-                <div class="exp-role">Operations & CX Associate</div>
-                <ul class="exp-list">
-                    <li>Managed daily user feedback loops for health-tech wearables, identifying and categorizing operational bottlenecks.</li>
-                    <li>Utilized <strong>Kustomer</strong> and <strong>Slack</strong> to resolve service delivery issues, improving overall response accuracy.</li>
-                    <li>Analyzed user interaction data using <strong>Excel</strong> and <strong>GA4</strong> to identify friction points in the onboarding journey.</li>
-                    <li>Collaborated with product teams via <strong>Notion</strong> to prioritize bug fixes based on direct user impact and volume.</li>
-                    <li>Maintained top-tier service standards by monitoring key performance metrics and SLAs.</li>
-                </ul>
+            <div class="section-divider">
+                <span class="section-icon">💼</span>
+                <h2 class="section-title">Experience</h2>
             </div>
 
-            <div class="exp-item">
-                <div class="exp-header">
-                    <div class="exp-company">Club Feast</div>
-                    <div class="exp-date">Dec 2024 – Jan 2025</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">📍</div>
+                    <div class="exp-header">
+                        <div class="exp-company">Ultrahuman</div>
+                        <div class="exp-date">Jun 2025 – Aug 2025</div>
+                    </div>
+                    <div class="exp-role">Operations & CX Associate</div>
+                    <ul class="exp-list">
+                        <li>Managed daily user feedback loops for health-tech wearables, identifying and categorizing operational bottlenecks.</li>
+                        <li>Utilized <strong>Kustomer</strong> and <strong>Slack</strong> to resolve service delivery issues, improving overall response accuracy.</li>
+                        <li>Analyzed user interaction data using <strong>Excel</strong> and <strong>GA4</strong> to identify friction points in the onboarding journey.</li>
+                        <li>Collaborated with product teams via <strong>Notion</strong> to prioritize bug fixes based on direct user impact and volume.</li>
+                        <li>Maintained top-tier service standards by monitoring key performance metrics and SLAs.</li>
+                    </ul>
                 </div>
-                <div class="exp-role">Operations & CX Associate</div>
-                <ul class="exp-list">
-                    <li>Coordinated logistics and customer support for a food-tech platform, ensuring timely delivery and issue resolution.</li>
-                    <li>Analyzed delivery data to identify high-error zones and implemented localized process changes.</li>
-                    <li>Reduced customer wait times by optimizing the escalation matrix for complex queries.</li>
-                    <li>Managed stakeholder communication across delivery partners and end-users using <strong>Outlook</strong> and <strong>Slack</strong>.</li>
-                    <li>Streamlined operational workflows by documenting SOPs for new delivery regions.</li>
-                </ul>
-            </div>
 
-            <div class="exp-item">
-                <div class="exp-header">
-                    <div class="exp-company">Amazon</div>
-                    <div class="exp-date">Mar 2022 – Nov 2024</div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">📍</div>
+                    <div class="exp-header">
+                        <div class="exp-company">Club Feast</div>
+                        <div class="exp-date">Dec 2024 – Jan 2025</div>
+                    </div>
+                    <div class="exp-role">Operations & CX Associate</div>
+                    <ul class="exp-list">
+                        <li>Coordinated logistics and customer support for a food-tech platform, ensuring timely delivery and issue resolution.</li>
+                        <li>Analyzed delivery data to identify high-error zones and implemented localized process changes.</li>
+                        <li>Reduced customer wait times by optimizing the escalation matrix for complex queries.</li>
+                        <li>Managed stakeholder communication across delivery partners and end-users using <strong>Outlook</strong> and <strong>Slack</strong>.</li>
+                        <li>Streamlined operational workflows by documenting SOPs for new delivery regions.</li>
+                    </ul>
                 </div>
-                <div class="exp-role">Customer Service Associate</div>
-                <ul class="exp-list">
-                    <li>Delivered high-quality support for a global user base, maintaining top-tier satisfaction scores.</li>
-                    <li>Identified recurring system glitches and reported them to the operations team, leading to a reduction in repetitive tickets.</li>
-                    <li>Mentored new joiners on operational protocols and communication best practices.</li>
-                    <li>Leveraged internal CRM tools and <strong>Excel</strong> to track and resolve complex user issues.</li>
-                    <li>Acted as a primary point of contact for high-priority escalations, ensuring effective stakeholder management.</li>
-                    <li>Consistently met and exceeded individual and team performance targets for efficiency and quality.</li>
-                </ul>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot">📍</div>
+                    <div class="exp-header">
+                        <div class="exp-company">Amazon</div>
+                        <div class="exp-date">Mar 2022 – Nov 2024</div>
+                    </div>
+                    <div class="exp-role">Customer Service Associate</div>
+                    <ul class="exp-list">
+                        <li>Delivered high-quality support for a global user base, maintaining top-tier satisfaction scores.</li>
+                        <li>Identified recurring system glitches and reported them to the operations team, leading to a reduction in repetitive tickets.</li>
+                        <li>Mentored new joiners on operational protocols and communication best practices.</li>
+                        <li>Leveraged internal CRM tools and <strong>Excel</strong> to track and resolve complex user issues.</li>
+                        <li>Acted as a primary point of contact for high-priority escalations, ensuring effective stakeholder management.</li>
+                        <li>Consistently met and exceeded individual and team performance targets for efficiency and quality.</li>
+                    </ul>
+                </div>
             </div>
-
-
         </section>
 
         <!-- Education -->
         <section class="section" id="education">
-            <h2 class="section-title">Education</h2>
+            <div class="section-divider">
+                <span class="section-icon">🎓</span>
+                <h2 class="section-title">Education</h2>
+            </div>
 
             <div class="edu-item">
                 <div class="edu-degree">MA Journalism & Mass Communication</div>
@@ -810,7 +972,10 @@
 
         <!-- Skills -->
         <section class="section" id="skills">
-            <h2 class="section-title">Strengths & Skills</h2>
+            <div class="section-divider">
+                <span class="section-icon">⚙️</span>
+                <h2 class="section-title">Strengths & Skills</h2>
+            </div>
 
             <div class="skills-grid">
                 <div>
@@ -857,9 +1022,66 @@
 
         <!-- Footer -->
         <footer>
-            <p>Sharmistha Palui • CX & Operations Specialist</p>
+            <p>SHARMISTHA PALUI • CX & Operations Specialist</p>
             <p>Data-Driven Problem Solving • Process Optimization • User Advocacy</p>
         </footer>
     </div>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
+        });
+
+        // Fade in elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fade-in-up 0.8s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(el => observer.observe(el));
+
+        // Copy to Clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Copied to clipboard!');
+            });
+        }
+
+        // Toast Notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.style.filter = document.body.style.filter === 'invert(1)' ? 'invert(0)' : 'invert(1)';
+            showToast('Theme toggled!');
+        }
+
+        // Download Resume as PDF
+        function downloadResume() {
+            showToast('Preparing download...');
+            setTimeout(() => {
+                window.print();
+            }, 300);
+        }
+    </script>
 </body>
 </html>
