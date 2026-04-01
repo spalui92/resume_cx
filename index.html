@@ -59,6 +59,44 @@
             z-index: 0;
         }
 
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+            25% { transform: translateY(-20px) translateX(10px); opacity: 0.4; }
+            50% { transform: translateY(-40px) translateX(-10px); opacity: 0.3; }
+            75% { transform: translateY(-20px) translateX(15px); opacity: 0.35; }
+        }
+
+        @keyframes float-medium {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.25; }
+            33% { transform: translateY(-30px) translateX(-15px); opacity: 0.35; }
+            66% { transform: translateY(-15px) translateX(20px); opacity: 0.25; }
+        }
+
+        @keyframes float-fast {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
+            50% { transform: translateY(-25px) translateX(25px); opacity: 0.3; }
+        }
+
+        /* Floating circles */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: 
+                radial-gradient(circle, rgba(0, 255, 0, 0.15) 0%, transparent 70%),
+                radial-gradient(circle, rgba(0, 255, 0, 0.1) 0%, transparent 70%),
+                radial-gradient(circle, rgba(0, 255, 0, 0.12) 0%, transparent 70%),
+                radial-gradient(circle, rgba(0, 255, 0, 0.08) 0%, transparent 70%);
+            background-size: 200px 200px, 300px 300px, 250px 250px, 350px 350px;
+            background-position: 0% 0%, 50% 50%, 25% 75%, 75% 25%;
+            animation: float-slow 20s ease-in-out infinite, float-medium 25s ease-in-out infinite, float-fast 30s ease-in-out infinite;
+        }
+
         h1, h2, h3 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
@@ -807,8 +845,6 @@
                     <div class="tech-item"><span class="tech-item-text">Slack</span></div>
                     <div class="tech-item"><span class="tech-item-text">Kustomer</span></div>
                     <div class="tech-item"><span class="tech-item-text">Outlook</span></div>
-                    <div class="tech-item"><span class="tech-item-text">Notion</span></div>
-                    <div class="tech-item"><span class="tech-item-text">Zendesk</span></div>
                 </div>
             </div>
         </section>
