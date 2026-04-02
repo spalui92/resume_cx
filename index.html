@@ -817,21 +817,37 @@
         }
 
         .tech-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
             gap: 15px;
+        }
+
+        @media (max-width: 992px) {
+            .tech-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .tech-badge {
             background: var(--darker-bg);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
+            padding: 10px 10px;
             border-radius: 10px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--text-secondary);
             transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
         }
 
         .tech-badge:hover {
@@ -1143,24 +1159,26 @@
 
             <div class="skills-container">
                 <div class="skill-category">
-                    <div class="skill-category-title">Core Strengths</div>
+                    <div class="skill-category-title">Category 1 — CX & Operations</div>
                     <ul class="skill-list">
-                        <li>Communication Skills</li>
-                        <li>Stakeholder Management</li>
-                        <li>User Feedback Analysis</li>
-                        <li>Service Delivery Management</li>
-                        <li>Cross-functional Collaboration</li>
+                        <li>Customer Experience Management</li>
+                        <li>Escalation & Queue Management</li>
+                        <li>SLA Monitoring & Compliance</li>
+                        <li>Process Documentation & SOPs</li>
+                        <li>Onboarding Support & Enablement</li>
+                        <li>Root Cause Analysis</li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <div class="skill-category-title">Learning Focus</div>
+                    <div class="skill-category-title">Category 2 — Data & Communication</div>
                     <ul class="skill-list">
-                        <li>SQL Basics</li>
-                        <li>Python for Data</li>
-                        <li>GA4 Analysis</li>
-                        <li>CRM Optimization</li>
-                        <li>Advanced CX Analytics</li>
+                        <li>User Feedback Analysis</li>
+                        <li>Data Reporting (Excel, GA4)</li>
+                        <li>Cross-functional Stakeholder Management</li>
+                        <li>CRM Management (Kustomer)</li>
+                        <li>Sprint Collaboration & Bug Triage</li>
+                        <li>Written & Verbal Communication</li>
                     </ul>
                 </div>
             </div>
@@ -1168,13 +1186,18 @@
             <div class="tech-stack">
                 <div class="tech-title">Tech Stack & Tools</div>
                 <div class="tech-grid">
-                    <div class="tech-badge">Excel</div>
-                    <div class="tech-badge">SQL</div>
-                    <div class="tech-badge">Python</div>
-                    <div class="tech-badge">GA4</div>
-                    <div class="tech-badge">Slack</div>
+                    <div class="tech-badge">Notion</div>
+                    <div class="tech-badge">Google Sheets</div>
                     <div class="tech-badge">Kustomer</div>
+                    <div class="tech-badge">Slack</div>
                     <div class="tech-badge">Outlook</div>
+                    <div class="tech-badge">Excel</div>
+                    <div class="tech-badge">GA4</div>
+                    <div class="tech-badge">SQL (learning)</div>
+                    <div class="tech-badge">Python (learning)</div>
+                    <div class="tech-badge">Jira</div>
+                    <div class="tech-badge">Canva</div>
+                    <div class="tech-badge">Zoom</div>
                 </div>
             </div>
         </section>
