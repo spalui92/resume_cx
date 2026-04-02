@@ -255,13 +255,16 @@
         }
 
         .nav-logo-text {
-            font-size: 20px;
+            font-size: 14px;
             font-weight: 900;
             color: var(--text-primary);
-            letter-spacing: 2px;
-            position: relative;
+            letter-spacing: 1px;
+            position: absolute;
             z-index: 4;
             text-transform: uppercase;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .nav-logo-container:hover .nav-logo-circle {
@@ -957,8 +960,8 @@
         <div class="nav-logo-container" onclick="window.scrollTo(0,0)">
             <div class="nav-logo-circle">
                 <div class="nav-logo-ring-inner"></div>
+                <div class="nav-logo-text">SP</div>
             </div>
-            <div class="nav-logo-text">SP</div>
         </div>
         
         <ul class="nav-menu">
