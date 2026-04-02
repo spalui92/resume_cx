@@ -530,8 +530,8 @@
         /* ===== STATS SECTION ===== */
         .stats-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             margin-bottom: 120px;
             animation: fade-in-up 0.8s ease-out 0.5s both;
         }
@@ -539,19 +539,21 @@
         .stat-card {
             background: linear-gradient(135deg, rgba(0, 255, 65, 0.08) 0%, rgba(0, 255, 65, 0.02) 100%);
             border: 1px solid rgba(0, 255, 65, 0.2);
-            padding: 40px 30px;
+            padding: 20px 16px;
             border-radius: 12px;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            justify-content: center;
+            align-items: center;
         }
 
         .stat-icon {
-            font-size: 32px;
-            margin-bottom: 16px;
+            font-size: 28px;
+            margin-bottom: 12px;
             opacity: 0.8;
             transition: all 0.3s ease;
         }
@@ -590,23 +592,27 @@
         }
 
         .stat-number {
-            font-size: 48px;
+            font-size: 36px;
             font-weight: 900;
             background: linear-gradient(135deg, var(--neon-green), var(--neon-green-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-family: 'Courier Prime', monospace;
             margin-top: 0;
+            white-space: nowrap;
         }
 
         .stat-label {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             font-weight: 600;
+            line-height: 1.3;
+            white-space: normal;
+            word-break: break-word;
         }
 
         /* ===== SECTIONS ===== */
@@ -1091,7 +1097,8 @@
             }
 
             .stats-section {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
 
             .education-grid {
@@ -1258,19 +1265,24 @@
         <!-- Stats Section -->
         <section class="stats-section">
             <div class="stat-card">
-                <div class="stat-icon">📅</div>
-                <div class="stat-number">3+</div>
-                <div class="stat-label">Years of Experience</div>
+                <div class="stat-icon">💬</div>
+                <div class="stat-number">100K+</div>
+                <div class="stat-label">Customer Interactions Handled</div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon">🏢</div>
-                <div class="stat-number">3</div>
-                <div class="stat-label">Companies Worked With</div>
+                <div class="stat-icon">😊</div>
+                <div class="stat-number">90–95%</div>
+                <div class="stat-label">CSAT Consistently Maintained</div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon">⚙️</div>
-                <div class="stat-number">10</div>
-                <div class="stat-label">Processes Optimized</div>
+                <div class="stat-icon">✅</div>
+                <div class="stat-number">80–100</div>
+                <div class="stat-label">Tickets Resolved Daily</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-number">2–3 min</div>
+                <div class="stat-label">Avg. Handling Time (Amazon & Ultrahuman)</div>
             </div>
         </section>
 
