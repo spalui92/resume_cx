@@ -175,15 +175,71 @@
             box-shadow: 0 8px 32px rgba(0, 255, 65, 0.1);
         }
 
-        .nav-logo {
-            font-size: 20px;
+        .nav-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+
+        .nav-logo-circle {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--neon-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: rgba(0, 255, 65, 0.05);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo-circle::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            border: 1px dashed rgba(0, 255, 65, 0.3);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .nav-logo-icon {
+            font-size: 14px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--darker-bg);
+            border: 1px solid var(--neon-green);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .nav-logo-text {
+            font-size: 18px;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--neon-green), var(--neon-green-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            color: var(--text-primary);
+            letter-spacing: 1px;
+        }
+
+        .nav-logo-container:hover .nav-logo-circle {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
+            border-style: solid;
         }
 
         .nav-menu {
@@ -1053,7 +1109,12 @@
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-logo">SP</div>
+        <div class="nav-logo-container">
+            <div class="nav-logo-circle">
+                <span class="nav-logo-text">SP</span>
+                <div class="nav-logo-icon">⚡</div>
+            </div>
+        </div>
         <ul class="nav-menu">
             <li class="nav-item"><a href="#top" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
