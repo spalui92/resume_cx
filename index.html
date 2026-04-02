@@ -453,16 +453,39 @@
         }
 
         .hero-title .job-title {
-            display: block;
-            font-size: clamp(16px, 2.5vw, 22px);
-            font-weight: 500;
-            letter-spacing: 1.5px;
+            display: inline-block;
+            font-size: clamp(14px, 2vw, 18px);
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-top: 12px;
-            background: linear-gradient(to right, var(--text-secondary), var(--neon-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            opacity: 0.9;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, var(--neon-green-dark) 0%, var(--neon-green) 100%);
+            color: var(--darker-bg);
+            border-radius: 100px;
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.25);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .hero-title .job-title:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 255, 65, 0.4);
+        }
+
+        .job-title-mini {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, var(--neon-green-dark) 0%, var(--neon-green) 100%);
+            color: var(--darker-bg);
+            border-radius: 20px;
+            margin-left: 10px;
+            vertical-align: middle;
+            box-shadow: 0 4px 10px rgba(0, 255, 65, 0.2);
         }
 
         .gradient-text {
@@ -1222,7 +1245,7 @@
 
         <!-- Footer -->
         <footer>
-            <p>SHARMISTHA PALUI • CX & Operations Specialist</p>
+            <p>SHARMISTHA PALUI • <span class="job-title-mini">CX & Operations Specialist</span></p>
             <p>Data-Driven Problem Solving • Process Optimization • User Advocacy</p>
         </footer>
     </div>
