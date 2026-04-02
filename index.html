@@ -352,9 +352,9 @@
 
         /* ===== CONTAINER & LAYOUT ===== */
         .container {
-            max-width: 1100px;
-            margin: 120px auto 60px;
-            padding: 0 40px;
+            max-width: 100%;
+            margin: 80px 0 60px;
+            padding: 0 60px;
             position: relative;
         }
 
@@ -400,8 +400,9 @@
 
         /* ===== HERO SECTION ===== */
         .hero {
-            padding: 40px 0 100px;
+            padding: 20px 0 100px;
             text-align: left;
+            width: 100%;
         }
 
         .hero-badge {
@@ -461,7 +462,8 @@
         .hero-subtitle {
             font-size: clamp(16px, 2vw, 18px);
             color: var(--text-secondary);
-            max-width: 800px;
+            max-width: 100%;
+            width: 100%;
             margin-bottom: 50px;
             line-height: 1.8;
         }
@@ -680,7 +682,7 @@
         /* ===== EDUCATION GRID ===== */
         .education-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
         }
 
@@ -737,9 +739,10 @@
         /* ===== SKILLS SECTION ===== */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr auto;
             gap: 40px;
             margin-bottom: 60px;
+            align-items: flex-start;
         }
 
         .skill-category-title {
@@ -887,7 +890,10 @@
             .exp-header { flex-direction: column; align-items: flex-start; }
             .exp-date { margin-top: 5px; }
             .stats-section { grid-template-columns: 1fr 1fr; }
+            .education-grid { grid-template-columns: 1fr; }
+            .skills-container { grid-template-columns: 1fr; }
             .philosophy-box { padding: 40px 30px; }
+            .container { padding: 0 30px; }
         }
 
         @media (max-width: 480px) {
