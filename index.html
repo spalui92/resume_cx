@@ -183,50 +183,40 @@
         }
 
         .nav-logo-circle {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: 2px solid var(--neon-green);
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            background: rgba(0, 255, 65, 0.05);
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
             transition: all 0.3s ease;
         }
 
         .nav-logo-circle::before {
             content: '';
             position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            border: 1px dashed rgba(0, 255, 65, 0.3);
-            animation: rotate 10s linear infinite;
+            background: conic-gradient(
+                from 0deg,
+                var(--neon-green) 0deg 45deg,
+                transparent 45deg 90deg,
+                var(--neon-green) 90deg 135deg,
+                transparent 135deg 180deg,
+                var(--neon-green) 180deg 225deg,
+                transparent 225deg 270deg,
+                var(--neon-green) 270deg 315deg,
+                transparent 315deg 360deg
+            );
+            opacity: 0.8;
+            animation: rotate-logo 12s linear infinite;
+            z-index: 0;
         }
 
-        @keyframes rotate {
+        @keyframes rotate-logo {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
-        }
-
-        .nav-logo-icon {
-            font-size: 14px;
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--darker-bg);
-            border: 1px solid var(--neon-green);
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 10px var(--neon-green);
         }
 
         .nav-logo-text {
@@ -234,12 +224,13 @@
             font-weight: 900;
             color: var(--text-primary);
             letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
         }
 
-        .nav-logo-container:hover .nav-logo-circle {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
-            border-style: solid;
+        .nav-logo-container:hover .nav-logo-circle::before {
+            opacity: 1;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
         }
 
         .nav-menu {
@@ -458,6 +449,21 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .stat-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-icon {
+            opacity: 1;
+            transform: scale(1.1);
         }
 
         .stat-card::before {
@@ -495,8 +501,9 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             font-family: 'Courier Prime', monospace;
+            margin-top: 0;
         }
 
         .stat-label {
@@ -1156,14 +1163,17 @@
         <!-- Stats Section -->
         <section class="stats-section">
             <div class="stat-card">
+                <div class="stat-icon">📅</div>
                 <div class="stat-number">3+</div>
                 <div class="stat-label">Years of Experience</div>
             </div>
             <div class="stat-card">
+                <div class="stat-icon">🏢</div>
                 <div class="stat-number">3</div>
                 <div class="stat-label">Companies Worked With</div>
             </div>
             <div class="stat-card">
+                <div class="stat-icon">⚙️</div>
                 <div class="stat-number">10</div>
                 <div class="stat-label">Processes Optimized</div>
             </div>
